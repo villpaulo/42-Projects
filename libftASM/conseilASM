@@ -1,0 +1,46 @@
+sm -f elf64 fichier.asm pour compiler de l'assembleur avec Assembleur
+gcc -o exec fichier.o  pour crer une executable
+
+	UN PROGRAMME EST COMPOSE DE DIFFERENTES SECTONS
+
+“text” contient le code du programme
+“rodata” contient les définitions des constantes
+“data” contient les définitions des variables globales initialisées (valeurs différentes de 0)
+“bss” contient les définitions des variables globales non initialisées (pas de valeur ou dont la valeur est 0)
+
+	DECLARATION DE VARIABLED GLOBALES NON INITIALISEES .BSS
+
+resb : réserve un octet (8 bits, 1 byte)
+resw : réserve un mot (16 bits, 2 bytes)
+resd : réserve un double mot (32 bits, 4 bytes)
+resq : réserve un quadruple mot (64 bits, 8 bytes)
+
+(nom variable taille, valeur)
+	
+	DECLARATION DE VARIABLES GLOBALES INITIALISEES .DATA
+
+db : réserve un octet (8 bits, 1 byte)
+dw : réserve un mot (16 bits, 2 bytes)
+dd : réserve un double mot (32 bits, 4 bytes)
+dq : réserve un quadruple mot (64 bits, 8 bytes)
+
+x: dd 4
+y: dq 0xffffffffffffffff ; y contient 64 bits à 1
+str: db 'hello'
+; str contient 5 octets, chaque octet contient la valeur d'un caractère
+
+	APPELER STDIO.H PAR EXEMPLE 
+
+commande : "externe"
+il est également possible de faire appel à des fonctions ou des variables définies en-dehors du programme, par exemple si un programme doit afficher un message à l’écran il peut faire appel à la fonction printf définie dans la bibliothèque standard. Dans ce cas il faut préciser que la définition de printf est à l’extérieur du programme :
+
+extern printf
+
+Si un fichier assembleur fait appel à un symbole externe sans cette déclaration, son assemblage (transformation en fichier objet) s’effectuera correctement mais l’étape de l’édition de liens affichera une erreur “undefined reference to …”.
+
+	VARIABLES GLOBALES
+
+global mafonction, mavariable
+
+
+

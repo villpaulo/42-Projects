@@ -1,0 +1,3 @@
+include "toto.php"
+header (location : location.php)
+meta <     url = "toto.php">

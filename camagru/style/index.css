@@ -1,0 +1,15 @@
+
+h1
+{
+	color: black;
+	font-weight: normal;
+	text-decoration: underline;
+	width: 300px;
+	background-color:white;
+	margin:auto;
+}
+
+#authent {
+	display: flex;
+
+}
